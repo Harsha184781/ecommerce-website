@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        
+        <div style="display:flex;">
+        <div style="margin-left:120px;">
+            <p style="font-size:25px; font-weight:bold; padding:15px;">Ecommerce</p>
+        </div>
+
+        <div style="display:flex; height:50px; margin:0px 250px;" >
+          <a href="" style="text-decoration:none; color:gray; padding:25px 10px;">Home</a>
+          <a href="" style="text-decoration:none; color:grey; padding:25px 10px;">Products</a>
+          <a href="" style="text-decoration:none; color:grey; padding:25px 10px;">About</a>
+          <a href="" style="text-decoration:none; color:grey; padding:25px 10px;">Contact</a>
+        </div>
+
+        <div style="display:flex; padding:20px">
+            <a href="" style="text-decoration:none; color:black; border:1px solid black; border-radius:5px; padding:7px; height:45px; width:100px;"><ion-icon style="font-size:20px; position:relative; top:5px; margin-right:8px;" name="log-in-outline"></ion-icon><span >Login</span></a>
+            <a href="" style="text-decoration:none; color:black; border:1px solid black; border-radius:5px; padding:7px; height:45px; width:108px; margin-left:10px;"> <ion-icon style="font-size:20px; position:relative; top:5px; margin-right:8px; margin-right:8px" name="person-add"></ion-icon><span>Register</span></a>
+            <a href="" style="text-decoration:none; color:black; border:1px solid black; border-radius:5px; padding:7px; height:45px; width:90px; margin-left:10px;"> <ion-icon style="font-size:20px; position:relative; top:5px; margin-right:8px; margin-right:8px" name="cart"></ion-icon> <span>Cart</span></a>
+       </div>
+
+    </div>
+
+    
+    <div style=" background-image: url('./AIT_B_JAVASCRIPT_05-12-2024/main.png.jpg');  background-size:cover; height:500px; border-radius:5px; width:98%; position: relative; left:15px;">
+        <div style="color:white; padding:200px 50px;">
+        <h1 style="font-weight:100;">New Season Arrivals</h1>
+        <p1 style="font-size:27px;">This a wider card supporting text below as a natural lead-in to additional content. This content is a little bit longer</p1>
+        </div>
+    </div>
+
+    <div style="margin-top:35px;">
+        <h1 style="text-align:center; font-weight:100;">Lastest Products</h1>
+        <hr style="margin:0px 40px;">
+    </div>
+
+
+    <div style="margin-top:60px;">
+        <ul style="list-style-type:none; display:flex; justify-content:center;">
+            <a id = "all"       style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; cursor: pointer;" ><li>All</li></a>
+            <a id = "mensclo"   style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; margin-left:20px; cursor: pointer;"><li>Mens's Clothing</li></a>
+            <a id = "womclo"    style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; margin-left:20px; cursor: pointer;" ><li>Women's Clothing</li></a>
+            <a id = "jel"       style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; margin-left:20px; cursor: pointer;"><li>Jewelery</li></a>
+            <a id = "elec"      style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; margin-left:20px; cursor: pointer;" ><li>Electronics</li></a>
+        </ul>
+    </div>
+
+
+
+   <div class="maindiv" style=" margin:45px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+<!-- <div style="width:450px; border:1px solid rgb(183, 183, 183); border-radius:5px;">
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183); border-top-left-radius:5px; border-top-right-radius:5px; padding:20px;">
+        <img style="height:360px; width:360px;" src= "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"/>
+        <p style="font-weight:bold; font-size:20px; overflow:hidden; text-overflow:ellipsis; width:100px; white-space:nowrap; position:relative; left:180px; margin-top:40px;">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</p>
+        <p style="overflow:hidden; text-overflow:ellipsis; width:340px; height:70px; position:relative; left:40px;">Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday</p>
+    </div>
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183);">
+       <p style="position:relative; top:10px;">109.95</p>
+    </div>
+    <div style=" padding:10px;  display:flex; justify-content:center;  border:1px solid rgb(183, 183, 183); border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:75px;">
+                   Details
+            </button>
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:100px;">
+                Add to Cart
+            </button>
+    </div>
+</div> -->
+   </div>
+   <footer style="text-align:center; margin-bottom:30px;">Made with <ion-icon name="heart" style="color:red; position:relative; top:3px;"></ion-icon> by <span style="text-decoration:underline;">B.SriHarsha</span></footer>
+
+<script>
+
+    async function dataretrive(){
+              let calldata = await fetch("https://fakestoreapi.com/products");
+              let data = await calldata.json();
+    createcards(data);
+    filtermens(data);
+    alldata(data);
+    filterwom(data);
+    filterjel(data);
+    filterelec(data);
+ }
+    
+    dataretrive();
+   
+    
+
+    let maindiv = document.querySelector(".maindiv")
+    let mensclo = document.querySelector("#mensclo");
+    let all = document.querySelector("#all");
+    let womclo = document.querySelector("#womclo");
+    let jel = document.querySelector("#jel");
+    let elec = document.querySelector("#elec");
+
+
+    function createcards(source){
+        source.forEach((ele)=>{
+            let title = ele.title;
+            let price = ele.price;
+            let image = ele.image;
+            let describe = ele.description;
+            let card = `<div style="width:450px; border:1px solid rgb(183, 183, 183); border-radius:5px;">
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183); border-top-left-radius:5px; border-top-right-radius:5px; padding:20px;">
+        <img style="height:360px; width:360px;" src= "${image}"/>
+        <p style="font-weight:bold; font-size:20px; overflow:hidden; text-overflow:ellipsis; width:100px; white-space:nowrap; position:relative; left:180px; margin-top:40px;">${title}</p>
+        <p style="overflow:hidden; text-overflow:ellipsis; width:340px; height:70px; position:relative; left:40px;">${describe}</p>
+    </div>
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183);">
+       <p style="position:relative; top:10px;">$ ${price}</p>
+    </div>
+    <div style=" padding:10px;  display:flex; justify-content:center;  border:1px solid rgb(183, 183, 183); border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:75px;">
+                   Details
+            </button>
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:100px;">
+                Add to Cart
+            </button>
+    </div>
+</div>`
+            maindiv.insertAdjacentHTML("beforeend",card)
+        })
+
+    }
+
+
+    function filtermens(source){
+        
+         mensclo.addEventListener("click",()=>{
+             let mensourc = source.filter((ele)=>{
+                return ele.category === "men's clothing";
+             })
+            let mendata =""
+             mensourc.forEach((ele)=>{
+            let title = ele.title;
+            let price = ele.price;
+            let image = ele.image;
+            let describe = ele.description;
+            let card = `<div style="width:450px; border:1px solid rgb(183, 183, 183); border-radius:5px;">
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183); border-top-left-radius:5px; border-top-right-radius:5px; padding:20px;">
+        <img style="height:360px; width:360px;" src= "${image}"/>
+        <p style="font-weight:bold; font-size:20px; overflow:hidden; text-overflow:ellipsis; width:100px; white-space:nowrap; position:relative; left:180px; margin-top:40px;">${title}</p>
+        <p style="overflow:hidden; text-overflow:ellipsis; width:340px; height:70px; position:relative; left:40px;">${describe}</p>
+    </div>
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183);">
+       <p style="position:relative; top:10px;">$ ${price}</p>
+    </div>
+    <div style=" padding:10px;  display:flex; justify-content:center;  border:1px solid rgb(183, 183, 183); border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:75px;">
+                   Details
+            </button>
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:100px;">
+                Add to Cart
+            </button>
+    </div>
+</div>`;    
+                    mendata+=card;
+                    mensclo.style.backgroundColor="rgb(183, 183, 183)";
+                    all.style.backgroundColor="white"
+                    womclo.style.backgroundColor="white"
+                    jel.style.backgroundColor="white"
+                    elec.style.backgroundColor="white"
+             })
+                maindiv.innerHTML=mendata;
+         })
+    }
+
+
+    function alldata(source){
+           all.addEventListener("click",()=>{
+           let alldata = ""
+            source.forEach((ele)=>{
+            let title = ele.title;
+            let price = ele.price;
+            let image = ele.image;
+            let describe = ele.description;
+            let card = `<div style="width:450px; border:1px solid rgb(183, 183, 183); border-radius:5px;">
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183); border-top-left-radius:5px; border-top-right-radius:5px; padding:20px;">
+        <img style="height:360px; width:360px;" src= "${image}"/>
+        <p style="font-weight:bold; font-size:20px; overflow:hidden; text-overflow:ellipsis; width:100px; white-space:nowrap; position:relative; left:180px; margin-top:40px;">${title}</p>
+        <p style="overflow:hidden; text-overflow:ellipsis; width:340px; height:70px; position:relative; left:40px;">${describe}</p>
+    </div>
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183);">
+       <p style="position:relative; top:10px;">$ ${price}</p>
+    </div>
+    <div style=" padding:10px;  display:flex; justify-content:center;  border:1px solid rgb(183, 183, 183); border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:75px;">
+                   Details
+            </button>
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:100px;">
+                Add to Cart
+            </button>
+    </div>
+</div>`
+  alldata+=card;
+  all.style.backgroundColor="rgb(183, 183, 183)";
+  mensclo.style.backgroundColor="white";
+  womclo.style.backgroundColor="white"
+  jel.style.backgroundColor="white"
+  elec.style.backgroundColor="white"
+})
+               maindiv.innerHTML=alldata;
+               
+
+           })
+ }
+
+
+    function filterwom(source){
+    womclo.addEventListener("click",()=>{
+        let wosourc = source.filter((ele)=>{
+                return ele.category === "women's clothing";
+             })
+            let wodata =""
+             wosourc.forEach((ele)=>{
+            let title = ele.title;
+            let price = ele.price;
+            let image = ele.image;
+            let describe = ele.description;
+            let card = `<div style="width:450px; border:1px solid rgb(183, 183, 183); border-radius:5px;">
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183); border-top-left-radius:5px; border-top-right-radius:5px; padding:20px;">
+        <img style="height:360px; width:360px;" src= "${image}"/>
+        <p style="font-weight:bold; font-size:20px; overflow:hidden; text-overflow:ellipsis; width:100px; white-space:nowrap; position:relative; left:180px; margin-top:40px;">${title}</p>
+        <p style="overflow:hidden; text-overflow:ellipsis; width:340px; height:70px; position:relative; left:40px;">${describe}</p>
+    </div>
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183);">
+       <p style="position:relative; top:10px;">$ ${price}</p>
+    </div>
+    <div style=" padding:10px;  display:flex; justify-content:center;  border:1px solid rgb(183, 183, 183); border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:75px;">
+                   Details
+            </button>
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:100px;">
+                Add to Cart
+            </button>
+    </div>
+</div>`;    
+                    wodata+=card;
+                    mensclo.style.backgroundColor="white";
+                    all.style.backgroundColor="white"
+                    womclo.style.backgroundColor="rgb(183, 183, 183)"
+                    jel.style.backgroundColor="white"
+                    elec.style.backgroundColor="white"
+             })
+                maindiv.innerHTML=wodata;
+    })
+    }
+
+
+    function filterjel(source){
+    jel.addEventListener("click",()=>{
+        let jelsourc = source.filter((ele)=>{
+                return ele.category === "jewelery";
+             })
+            let jeldata =""
+             jelsourc.forEach((ele)=>{
+            let title = ele.title;
+            let price = ele.price;
+            let image = ele.image;
+            let describe = ele.description;
+            let card = `<div style="width:450px; border:1px solid rgb(183, 183, 183); border-radius:5px;">
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183); border-top-left-radius:5px; border-top-right-radius:5px; padding:20px;">
+        <img style="height:360px; width:360px;" src= "${image}"/>
+        <p style="font-weight:bold; font-size:20px; overflow:hidden; text-overflow:ellipsis; width:100px; white-space:nowrap; position:relative; left:180px; margin-top:40px;">${title}</p>
+        <p style="overflow:hidden; text-overflow:ellipsis; width:340px; height:70px; position:relative; left:40px;">${describe}</p>
+    </div>
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183);">
+       <p style="position:relative; top:10px;">$ ${price}</p>
+    </div>
+    <div style=" padding:10px;  display:flex; justify-content:center;  border:1px solid rgb(183, 183, 183); border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:75px;">
+                   Details
+            </button>
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:100px;">
+                Add to Cart
+            </button>
+    </div>
+</div>`;    
+                    jeldata+=card;
+             })
+                maindiv.innerHTML=jeldata;
+
+                mensclo.style.backgroundColor="white";
+                all.style.backgroundColor="white";
+                womclo.style.backgroundColor="white";
+                jel.style.backgroundColor="rgb(183, 183, 183)";
+                elec.style.backgroundColor="white";
+    })
+    }
+
+
+    function filterelec(source){
+        elec.addEventListener("click",()=>{
+        let elecsourc = source.filter((ele)=>{
+                return ele.category === "electronics";
+             })
+            let elecdata =""
+             elecsourc.forEach((ele)=>{
+            let title = ele.title;
+            let price = ele.price;
+            let image = ele.image;
+            let describe = ele.description;
+            let card = `<div style="width:450px; border:1px solid rgb(183, 183, 183); border-radius:5px;">
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183); border-top-left-radius:5px; border-top-right-radius:5px; padding:20px;">
+        <img style="height:360px; width:360px;" src= "${image}"/>
+        <p style="font-weight:bold; font-size:20px; overflow:hidden; text-overflow:ellipsis; width:100px; white-space:nowrap; position:relative; left:180px; margin-top:40px;">${title}</p>
+        <p style="overflow:hidden; text-overflow:ellipsis; width:340px; height:70px; position:relative; left:40px;">${describe}</p>
+    </div>
+    <div style=" text-align:center;  border:1px solid rgb(183, 183, 183);">
+       <p style="position:relative; top:10px;">$ ${price}</p>
+    </div>
+    <div style=" padding:10px;  display:flex; justify-content:center;  border:1px solid rgb(183, 183, 183); border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:75px;">
+                   Details
+            </button>
+            <button  style="margin:10px; background-color: black; color:white; border-radius:5px; padding:5px; width:100px;">
+                Add to Cart
+            </button>
+    </div>
+</div>`;    
+                    elecdata+=card;
+             })
+                maindiv.innerHTML=elecdata;
+
+                mensclo.style.backgroundColor="white";
+                all.style.backgroundColor="white";
+                womclo.style.backgroundColor="white";
+                jel.style.backgroundColor="white";
+                elec.style.backgroundColor="rgb(183, 183, 183)";
+    })
+    }
+
+</script>
+      
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
