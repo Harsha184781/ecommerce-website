@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Details</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <style>
+                 .login{
+                text-decoration:none;
+                 color:black;
+                  border:1px solid black; 
+                  border-radius:5px;
+                   padding:7px;
+                    height:45px; 
+                    width:100px;
+            }
+            .login:hover{
+                background-color:black;
+                color:white;
+            }
+            .register{
+                text-decoration:none;
+                 color:black; 
+                 border:1px solid black; 
+                 border-radius:5px;
+                  padding:7px; 
+                 height:45px;
+                  width:108px;
+                   margin-left:10px;
+            }
+
+            .register:hover{
+                background-color:black;
+                color:white;
+            }
+            .cart{
+               text-decoration:none; 
+               color:black;
+                border:1px solid black;
+                 border-radius:5px; 
+                 padding:7px; 
+                 height:45px;
+                  width:90px; 
+                  margin-left:10px;
+            }
+            .cart:hover{
+                background-color:black;
+                color:white;
+            }
+            .loginicon{
+                font-size:20px;
+                 position:relative;
+                  top:5px; 
+                  margin-right:8px;
+            }
+           
+            .registericon{
+             font-size:20px;
+              position:relative; 
+              top:5px; 
+              margin-right:8px; 
+            }
+            .carticon{
+                font-size:20px; 
+                position:relative; 
+                top:5px;
+                margin-right:8px; 
+            }
+
+            .add{
+                margin:10px; 
+                background-color: black;
+                 color:white; 
+                 border-radius:5px;
+                  padding:5px; 
+                  width:100px;
+            }
+            .details{
+                margin:10px;
+                 background-color: black; 
+                  color:white;
+                   border-radius:5px;
+                    padding:5px;
+                     width:75px;
+            }
+
+            button.add:hover{
+                background-color: lightgray; 
+                color:black;
+            }
+            button.details:hover{
+                background-color: lightgray; 
+                color:black;
+            }
+            
+            .filter{
+                text-decoration:none; 
+                color:black; 
+                border:1px solid black; 
+                padding: 4px 10px; 
+                 height: 35px;
+                  border-radius:5px; 
+                  cursor: pointer;
+                  margin-left:20px;
+            }
+            .filter:hover{
+                color:white;
+                background-color:black;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <div style="display:flex; background-color:rgb(247, 246, 246);">
+            <div style="margin-left:120px;">
+                <p style="font-size:25px; font-weight:bold; padding:15px;">Ecommerce</p>
+            </div>
+    
+            <div style="display:flex; height:50px; margin:0px 250px;" >
+              <a href="./index.html" style="text-decoration:none; color:gray; padding:25px 10px;">Home</a>
+              <a id="detailsbutton" href="details.html" data-id="details" style="text-decoration:none; color:black; padding:25px 10px;">Products</a>
+              <a href="./aboutus.html" style="text-decoration:none; color:grey; padding:25px 10px;">About</a>
+              <a href="./contactus.html" style="text-decoration:none; color:grey; padding:25px 10px;">Contact</a>
+            </div>
+    
+            <div style="display:flex; padding:20px">
+                <a href="" class="login"><ion-icon class="loginicon"  name="log-in-outline"></ion-icon><span >Login</span></a>
+                <a href="" class="register" > <ion-icon class="registericon" name="person-add"></ion-icon><span>Register</span></a>
+                <a href="" class="cart"> <ion-icon class="carticon" name="cart"></ion-icon> <span>Cart</span></a>
+           </div>
+    
+        </div>
+
+
+
+
+        <div id="details">
+            <div style="margin-top:35px;">
+                <h1 style="text-align:center; font-weight:100;">Lastest Products</h1>
+                <hr style="margin:20px 40px 0px; border:2px solid lightgrey">
+            </div>
+        
+        
+            <div style="margin-top:60px;">
+                <ul style="list-style-type:none; display:flex; justify-content:center;">
+                    <a class= "filter"     data-id="all" >           <li>All</li></a>
+                    <a class = "filter"    data-id="men's clothing">    <li>Mens's Clothing</li></a>
+                    <a class = "filter"    data-id="women's clothing"> <li>Women's Clothing</li></a>
+                    <a class = "filter"    data-id="jewelery">      <li>Jewelery</li></a>
+                    <a class = "filter"    data-id="electronics">   <li>Electronics</li></a>
+                </ul>
+            </div>
+
+            <div id="defaultdiv"  style=" margin:45px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+             
+
+
+            </div>
+        
+        </div>
+       
+
+
+
+        <script src="./products.js"></script>
+
+      
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Indexpage</title>
+        <title>AboutUs</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -17,31 +17,8 @@
             crossorigin="anonymous"
         />
         <style>
-            .add{
-                margin:10px; 
-                background-color: black;
-                 color:white; 
-                 border-radius:5px;
-                  padding:5px; 
-                  width:100px;
-            }
-            .details{
-                margin:10px;
-                 background-color: black; 
-                  color:white;
-                   border-radius:5px;
-                    padding:5px;
-                     width:75px;
-            }
 
-            button.add:hover{
-                background-color: lightgray; 
-                color:black;
-            }
-            button.details:hover{
-                background-color: lightgray; 
-                color:black;
-            }
+          
             .login{
                 text-decoration:none;
                  color:black;
@@ -116,10 +93,10 @@
         </div>
 
         <div style="display:flex; height:50px; margin:0px 250px;" >
-          <a href="" style="text-decoration:none; color:black; padding:25px 10px;">Home</a>
-          <a id="detailsbutton" href="./details.html"data-id="details" style="text-decoration:none; color:grey; padding:25px 10px;">Products</a>
-          <a href="./aboutus.html" style="text-decoration:none; color:grey; padding:25px 10px;">About</a>
-          <a href="./contactus.html" style="text-decoration:none; color:grey; padding:25px 10px;">Contact</a>
+          <a href="./index.html" style="text-decoration:none; color:gray; padding:25px 10px;">Home</a>
+          <a id="detailsbutton" href="./details.html" data-id="details" style="text-decoration:none; color:grey; padding:25px 10px;">Products</a>
+          <a href="" style="text-decoration:none; color:grey; padding:25px 10px;">About</a>
+          <a href="" style="text-decoration:none; color:black; padding:25px 10px;">Contact</a>
         </div>
 
         <div style="display:flex; padding:20px">
@@ -131,37 +108,47 @@
     </div>
 
     
-    <div style=" background-image: url('./AIT_B_JAVASCRIPT_05-12-2024/main.png.jpg');  background-size:cover; height:500px; border-radius:5px; width:98%; position: relative; left:15px;">
-        <div style="color:white; padding:200px 50px;">
-        <h1 style="font-weight:100;">New Season Arrivals</h1>
-        <p1 style="font-size:27px;">This a wider card supporting text below as a natural lead-in to additional content. This content is a little bit longer</p1>
-        </div>
-    </div>
-
     <div style="margin-top:35px;">
-        <h1 style="text-align:center; font-weight:100;">Lastest Products</h1>
-        <hr style="margin:20px 40px 0px; border:2px solid lightgrey">
+        <h1 style="text-align:center; font-weight:500;">Contact Us</h1>
+        <hr style="margin:20px 40px 20px; border:2px solid lightgrey">
     </div>
 
+<div style="margin:40px 600px;">
+    <label>Name</label><br>
+    <input style="border:2px solid lightgrey; margin-top:5px; border-radius:5px; width:300px; padding-left:10px; height:35px;" type="text" placeholder="Enter your name">
+     
+    <label style="margin-top:10px;">Email</label><br>
+    <input style="border:2px solid lightgrey; margin-top:5px; border-radius:5px; width:300px; padding-left:10px; height:35px;" type="text" placeholder="name@example.com">
 
-    <div style="margin-top:60px;">
-        <ul style="list-style-type:none; display:flex; justify-content:center;">
-            <a id = "all"       style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; cursor: pointer;" ><li>All</li></a>
-            <a id = "mensclo"   style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; margin-left:20px; cursor: pointer;"><li>Mens's Clothing</li></a>
-            <a id = "womclo"    style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; margin-left:20px; cursor: pointer;" ><li>Women's Clothing</li></a>
-            <a id = "jel"       style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; margin-left:20px; cursor: pointer;"><li>Jewelery</li></a>
-            <a id = "elec"      style=" text-decoration:none; color:black; border:1px solid black; padding: 4px 10px;  height: 35px; border-radius:5px; margin-left:20px; cursor: pointer;" ><li>Electronics</li></a>
-        </ul>
-    </div>
+    <label style="margin-top:10px;">Message</label><br>
+    <textarea style="border:2px solid lightgrey; margin-top:5px; border-radius:5px; padding-left:10px; resize: none;" rows="5" cols="37"  placeholder="Enter your message"></textarea>
+</div>
+<div style="text-align: center; margin-bottom:60px;">
+    <button type="submit" class="btn btn-secondary">Submit</button>
+</div>
 
 
-   <div class="maindiv" style=" margin:45px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
 
-   </div>
 
+
+
+
+   
+
+   
    <footer style="text-align:center; margin-bottom:30px;">Made with <ion-icon name="heart" style="color:red; position:relative; top:3px;"></ion-icon> by <span style="text-decoration:underline;">B.SriHarsha</span></footer>
 
-<script src="./Ecommerce.js"></script>
+
+
+
+   <script>
+    let product = document.querySelector("#detailsbutton");
+
+
+product.addEventListener("click",(e)=>{
+     localStorage.setItem("productId",e.target.dataset.id)
+})
+   </script>
       
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
