@@ -9,7 +9,16 @@
   <body>
     <h1 onclick="window.location.href='./details.html'" id="harsha" data-id = "harsha">click me</h1>
           
-    
+    <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center;" >
+      <img style="height:220px; margin-top:10px;" src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"/>
+      <div style="margin:30px 50px;">
+      <p style="overflow:hidden; font-weight:600; text-overflow:ellipsis; width:120px; white-space:nowrap;">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</p>
+    </div>
+      <div style="display:flex; justify-content:center; margin-bottom:15px;">
+        <button  onclick="window.location.href='./details.html'" id="details" data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark">Add to Cart</button>
+      </div>
+    </div>
 
     
     <script>
