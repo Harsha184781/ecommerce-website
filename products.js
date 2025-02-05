@@ -30,12 +30,27 @@ async function getdata(){
 });
   
 
+let count = 0;
+let sum = 0 ;
+let cart = {};
+
+if (localStorage.getItem("count")){
+      count = parseInt(localStorage.getItem("count"));
+}
+if (localStorage.getItem("sum")){
+  sum = parseFloat(localStorage.getItem("sum"));
+}
+if (localStorage.getItem("cart")){
+  cart = JSON.parse(localStorage.getItem("cart"));
+}
+
+updateCart();
 
 
  function filterproduct(source){
-        console.log(locid);
+        
        let product = source.find(ele=>ele.id==locid)
-        console.log(product);
+     
         
      if(locid == 6){
          var element = `<div style="display:flex; margin:70px 0px;">
@@ -50,8 +65,8 @@ async function getdata(){
     <h1 style="font-weight:100;">$${product.price}</h1>
     <p style="font-size:18px; margin-right:200px;">${product.description}</p>
     <div style="display:flex;">
-     <button type="button" style="margin-right:12px;" class="btn btn-outline-dark">Add to Cart</button>
-     <button type="button" class="btn btn-dark ">Go to Cart</button>
+     <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  onclick="window.location.href='./cart.html'" data-id=${product.id} data-image=${product.image} data-title=${product.title}  data-price =${product.price} >Add to Cart</button>
+     <button type="button" class="btn btn-dark" >Go to Cart</button>
     </div>
    </div>
  </div>`
@@ -59,14 +74,14 @@ async function getdata(){
 let maylikedata = source.filter(ele=>ele.category==product.category);
 var mayliked =""
 maylikedata.map((ele)=>{
-mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center;" >
+mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center; margin:0px 20px;" >
       <img style="height:220px; width:180px; margin-top:10px;" src="${ele.image}"/>
       <div style="margin:30px 50px;">
       <p style="overflow:hidden; font-weight:600; text-overflow:ellipsis; width:120px; white-space:nowrap;">${ele.title}</p>
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add">Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd" onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -86,7 +101,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark">Add to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
     <button type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
@@ -96,14 +111,14 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
 let maylikedata = source.filter(ele=>ele.category==product.category);
 var mayliked =""
 maylikedata.map((ele)=>{
-mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center;" >
+mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center; margin:0px 20px;" >
       <img style="height:220px; width:180px; margin-top:10px;" src="${ele.image}"/>
       <div style="margin:30px 50px;">
       <p style="overflow:hidden; font-weight:600; text-overflow:ellipsis; width:120px; white-space:nowrap;">${ele.title}</p>
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add">Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -123,7 +138,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark">Add to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
     <button type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
@@ -133,14 +148,14 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
 let maylikedata = source.filter(ele=>ele.category==product.category);
 var mayliked =""
 maylikedata.map((ele)=>{
-mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center;" >
+mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center; margin:0px 20px;" >
       <img style="height:220px; width:180px; margin-top:10px;" src="${ele.image}"/>
       <div style="margin:30px 50px;">
       <p style="overflow:hidden; font-weight:600; text-overflow:ellipsis; width:120px; white-space:nowrap;">${ele.title}</p>
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add">Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-image=${ele.image} data-title=${ele.title}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -159,7 +174,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark">Add to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd" onclick="window.location.href='./cart.html'" data-id=${product.id} data-image=${product.image} data-title=${product.title}  data-price =${product.price}>Add to Cart</button>
     <button type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
@@ -169,14 +184,14 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
 let maylikedata = source.filter(ele=>ele.category==product.category);
 var mayliked =""
 maylikedata.map((ele)=>{
-mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center;" >
+mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center; margin:0px 20px;" >
       <img style="height:220px; width:180px; margin-top:10px;" src="${ele.image}"/>
       <div style="margin:30px 50px;">
       <p style="overflow:hidden; font-weight:600; text-overflow:ellipsis; width:120px; white-space:nowrap;">${ele.title}</p>
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add">Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -196,7 +211,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark">Add to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd" onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
     <button type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
@@ -206,14 +221,14 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
 let maylikedata = source.filter(ele=>ele.category==product.category);
 var mayliked =""
 maylikedata.map((ele)=>{
-mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center;" >
+mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center; margin:0px 20px; " >
       <img style="height:220px; width:180px; margin-top:10px;" src="${ele.image}"/>
       <div style="margin:30px 50px;">
       <p style="overflow:hidden; font-weight:600; text-overflow:ellipsis; width:120px; white-space:nowrap;">${ele.title}</p>
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add">Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -233,7 +248,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark">Add to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd" onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
     <button type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
@@ -244,14 +259,14 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
 let maylikedata = source.filter(ele=>ele.category==product.category);
 var mayliked =""
 maylikedata.map((ele)=>{
-mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center;" >
+mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center; margin:0px 20px;" >
       <img style="height:220px; width:180px; margin-top:10px;" src="${ele.image}"/>
       <div style="margin:30px 50px;">
       <p style="overflow:hidden; font-weight:600; text-overflow:ellipsis; width:120px; white-space:nowrap;">${ele.title}</p>
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add">Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -270,8 +285,8 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     <h1 style="font-weight:100;">$${product.price}</h1>
     <p style="font-size:18px; margin-right:200px;">${product.description}</p>
     <div style="display:flex;">
-     <button type="button" style="margin-right:12px;" class="btn btn-outline-dark">Add to Cart</button>
-     <button type="button" class="btn btn-dark">Go to Cart</button>
+     <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd" onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
+     <button type="button" class="btn btn-dark" onclick="window.location.href='./cart.html'">Go to Cart</button>
     </div>
 
    </div>
@@ -280,21 +295,23 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
  let maylikedata = source.filter(ele=>ele.category==product.category);
 var mayliked =""
 maylikedata.map((ele)=>{
-mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center;" >
+mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:220px; text-align:center; margin:0px 20px;" >
       <img style="height:220px; width:180px; margin-top:10px;" src="${ele.image}"/>
       <div style="margin:30px 50px;">
       <p style="overflow:hidden; font-weight:600; text-overflow:ellipsis; width:120px; white-space:nowrap;">${ele.title}</p>
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add">Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
 }
+
+
 element = element+`<div style="font-weight:500; margin:220px 200px 0px;"><h2>You may also Like</h2> </div>
-<div  style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:50px 200px;">
-${mayliked}</div>`
+<div class="scroll-container"><div class="scroll-content">${mayliked}${mayliked}${mayliked}${mayliked}</div></div>`
+
 maindiv.innerHTML=element;
 
 
@@ -307,6 +324,19 @@ detailBtns.forEach((ele)=>{
     })
 })
 
+button();
+
+// const addBtns= document.querySelectorAll(".localadd")
+        
+        
+// addBtns.forEach((ele)=>{
+//     ele.addEventListener("click", (e)=>{
+//         localStorage.setItem("productId", e.target.dataset.id)
+//         localStorage.setItem("productTitle", e.target.dataset.title)
+//         localStorage.setItem("productPrice", e.target.dataset.price)
+
+//     })
+// })
 
  }
 
@@ -328,7 +358,7 @@ detailBtns.forEach((ele)=>{
              <button onclick="window.location.href='./details.html'" data-id=${ele.id} class = "details">
                  Details
              </button>
-             <button  class = "add">
+             <button   onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price} class = "add localadd">
                  Add to Cart
              </button>
      </div>
@@ -346,8 +376,22 @@ detailBtns.forEach((ele)=>{
     })
 })
 
+        
+ button();      
+// addBtns.forEach((ele)=>{
+//     ele.addEventListener("click", (e)=>{
+//         localStorage.setItem("productId", e.target.dataset.id)
+//         localStorage.setItem("productTitle", e.target.dataset.title)
+//         localStorage.setItem("productPrice", e.target.dataset.price)
+
+//     })
+// })
+
+
     }
 
+
+    
 
 
 buttons.forEach((ele)=>{
@@ -368,4 +412,53 @@ buttons.forEach((ele)=>{
 
 
 
-    
+function button(){
+
+  let btns = document.querySelectorAll(".localadd")
+  console.log(btns);
+  
+  btns.forEach((ele)=>{
+
+    ele.addEventListener("click",(e)=>{
+      add(e);
+  })
+  
+
+  })
+  
+} 
+
+function updateCart() {
+  // document.getElementById(".sum").textContent = sum;
+  document.getElementById("count").textContent = count;
+  localStorage.setItem("sum", sum);
+  localStorage.setItem("count", count);
+ 
+  
+}
+
+function add(e){
+  let title = e.target.dataset.title;
+  let image = e.target.dataset.image;
+  let price = e.target.dataset.price;
+  let id = e.target.dataset.id;
+
+if(id in cart){
+  cart[id].qty++;
+}else{
+ let  cartItem = {
+    title: title,
+    price: price,
+    qty : 1,
+    image : image
+  }
+  cart[id] = cartItem;
+}
+
+sum+=price;
+count++;
+
+localStorage.setItem("cart", JSON.stringify(cart));
+updateCart(count);
+
+}

@@ -22,6 +22,7 @@
     let product = document.querySelector("#detailsbutton");
 
 
+
     product.addEventListener("click",(e)=>{
          localStorage.setItem("productId",e.target.dataset.id)
     })
@@ -46,7 +47,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class = "details">
                 Details
             </button>
-            <button  class = "add">
+            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class = "add localadd">
                 Add to Cart
             </button>
     </div>
@@ -62,6 +63,7 @@
                 localStorage.setItem("productId", e.target.dataset.id)
             })
         })
+        button();
     }
 
 
@@ -90,7 +92,7 @@
             <button  onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  class="add">
+            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -111,7 +113,9 @@
                       localStorage.setItem("productId",e.target.dataset.id)
                      })
                 })
+                button();     
          })
+       
     }
 
 
@@ -136,7 +140,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  class="add">
+            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-image=${ele.image} data-title=${ele.title}  data-price =${ele.price}  class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -156,6 +160,7 @@
                      localStorage.setItem("productId",e.target.dataset.id)
                     })
                })
+               button();
 
            })
  }
@@ -185,7 +190,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  class="add">
+            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -206,6 +211,7 @@
                       localStorage.setItem("productId",e.target.dataset.id)
                      })
                 })
+                button();
     })
     }
 
@@ -234,7 +240,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  class="add">
+            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -250,12 +256,13 @@
                 elec.style.backgroundColor="white";
 
                 let x = document.querySelectorAll(".details");
-
+                  
                 x.forEach((ele)=>{
                      ele.addEventListener("click",(e)=>{
                       localStorage.setItem("productId",e.target.dataset.id)
                      })
                 })
+                button();
             
     })
     }
@@ -285,7 +292,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button class="add">
+            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price} class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -299,7 +306,6 @@
                 womclo.style.backgroundColor="white";
                 jel.style.backgroundColor="white";
                 elec.style.backgroundColor="rgb(183, 183, 183)";
-
                 let x = document.querySelectorAll(".details");
 
                 x.forEach((ele)=>{
@@ -307,8 +313,87 @@
                       localStorage.setItem("productId",e.target.dataset.id)
                      })
                 })
+                button();      
     })
+
+
     }
 
 
 
+
+
+    let count = 0;
+    let sum = 0;
+    let cart = {};
+
+    if (localStorage.getItem("count")) {
+        count = parseInt(localStorage.getItem("count"));
+    }
+    
+    if (localStorage.getItem("sum")) {
+        sum = parseFloat(localStorage.getItem("sum"));
+    }
+    
+    if (localStorage.getItem("cart")) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+    } 
+    
+    updateCart();
+    
+
+function button(){
+ 
+    
+
+let btns = document.querySelectorAll(".localadd");
+
+
+// for (let i = 0; i < btns.length; i++) {
+//     let btn = btns[i];
+//     btn.addEventListener("click", add);
+// }
+    
+btns.forEach((ele)=>{
+    ele.addEventListener("click",add)
+})
+
+function add(event) {
+    let price = Number(event.target.dataset.price);
+    let title = event.target.dataset.title;
+    let id = event.target.dataset.id;
+    let image = event.target.dataset.image
+
+if (id in cart) {
+    cart[id].qty++;   
+} else {
+    let cartItem = {
+        title: title,
+        price: price,
+        qty: 1,
+        image : image
+    };
+    cart[id] = cartItem;
+        
+}
+
+
+count++;
+sum += price;
+
+
+
+localStorage.setItem("cart", JSON.stringify(cart));
+updateCart(count);
+}
+
+}
+
+function updateCart() {
+    // document.getElementById(".sum").textContent = sum;
+    document.getElementById("count").textContent = count;
+    localStorage.setItem("sum", sum);
+    localStorage.setItem("count", count);
+   
+    
+}

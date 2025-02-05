@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>AboutUs</title>
+        <title>ContactUs</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -54,7 +54,7 @@
                  border-radius:5px; 
                  padding:7px; 
                  height:45px;
-                  width:90px; 
+                  width:120px; 
                   margin-left:10px;
             }
             .cart:hover{
@@ -102,7 +102,7 @@
         <div style="display:flex; padding:20px">
             <a href="./login.html" class="login"><ion-icon class="loginicon"  name="log-in-outline"></ion-icon><span >Login</span></a>
             <a href="./register.html" class="register" > <ion-icon class="registericon" name="person-add"></ion-icon><span>Register</span></a>
-            <a href="" class="cart"> <ion-icon class="carticon" name="cart"></ion-icon> <span>Cart</span></a>
+            <a href="./cart.html" class="cart"> <ion-icon class="carticon" name="cart"></ion-icon> <span>Cart (<span id="count">0</span>)</span></a>
        </div>
 
     </div>
@@ -148,6 +148,32 @@
 product.addEventListener("click",(e)=>{
      localStorage.setItem("productId",e.target.dataset.id)
 })
+
+
+let count = 0;
+let sum = 0 ;
+let cart = {};
+
+if (localStorage.getItem("count")){
+      count = parseInt(localStorage.getItem("count"));
+}
+if (localStorage.getItem("sum")){
+  sum = parseFloat(localStorage.getItem("sum"));
+}
+if (localStorage.getItem("cart")){
+  cart = JSON.parse(localStorage.getItem("cart"));
+}
+
+updateCart();
+
+function updateCart() {
+  // document.getElementById(".sum").textContent = sum;
+  document.getElementById("count").textContent = count;
+  localStorage.setItem("sum", sum);
+  localStorage.setItem("count", count);
+ 
+  
+}
    </script>
       
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

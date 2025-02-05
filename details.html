@@ -52,7 +52,7 @@
                  border-radius:5px; 
                  padding:7px; 
                  height:45px;
-                  width:90px; 
+                  width:120px; 
                   margin-left:10px;
             }
             .cart:hover{
@@ -120,12 +120,49 @@
                 background-color:black;
             }
 
+    .scroll-container {
+      position: relative;
+      width:70%;
+      height: 380px;
+      overflow: hidden;
+      margin:50px 200px;
+      border-style:solid;
+      border-width:0px 100px;
+      border-color:rgb(254, 254, 254);
+      
+    }
+
+    .scroll-content:hover{
+        animation: none;
+    }
+
+    .scroll-content {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      animation: scrollHorizontal 20s linear infinite;
+    }
+
+
+    @keyframes scrollHorizontal {
+        0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+
+    }
+
         </style>
 
     </head>
 
     <body>
-        <div style="display:flex; background-color:rgb(247, 246, 246); position:sticky; top:0px;">
+        <div style="display:flex; background-color:rgb(247, 246, 246); position:fixed; top:0px; width:100%; z-index:100;">
             <div style="margin-left:120px;">
                 <p style="font-size:25px; font-weight:bold; padding:15px;">Ecommerce</p>
             </div>
@@ -140,7 +177,7 @@
             <div style="display:flex; padding:20px">
                 <a href="./login.html" class="login"><ion-icon class="loginicon"  name="log-in-outline"></ion-icon><span >Login</span></a>
                 <a href="./register.html" class="register" > <ion-icon class="registericon" name="person-add"></ion-icon><span>Register</span></a>
-                <a href="" class="cart"> <ion-icon class="carticon" name="cart"></ion-icon> <span>Cart</span></a>
+                <a href="./cart.html" class="cart"> <ion-icon class="carticon" name="cart"></ion-icon> <span>Cart (<span id="count">0</span>)</span></a>
            </div>
     
         </div>
@@ -148,7 +185,7 @@
 
 
 
-        <div id="details">
+        <div id="details" style="margin-top:150px;">
             <div style="margin-top:35px;">
                 <h1 style="text-align:center; font-weight:100;">Lastest Products</h1>
                 <hr style="margin:20px 40px 0px; border:2px solid lightgrey">
