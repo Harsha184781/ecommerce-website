@@ -433,8 +433,6 @@ function updateCart() {
   document.getElementById("count").textContent = count;
   localStorage.setItem("sum", sum);
   localStorage.setItem("count", count);
- 
-  
 }
 
 function add(e){

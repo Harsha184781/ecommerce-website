@@ -9,6 +9,8 @@
     filterwom(data);
     filterjel(data);
     filterelec(data);
+    console.log(data);
+    
  }
     
     dataretrive();
@@ -362,7 +364,7 @@ function add(event) {
     let price = Number(event.target.dataset.price);
     let title = event.target.dataset.title;
     let id = event.target.dataset.id;
-    let image = event.target.dataset.image
+    let image = event.target.dataset.image;
 
 if (id in cart) {
     cart[id].qty++;   
@@ -394,6 +396,5 @@ function updateCart() {
     document.getElementById("count").textContent = count;
     localStorage.setItem("sum", sum);
     localStorage.setItem("count", count);
-   
     
 }

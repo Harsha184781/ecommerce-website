@@ -117,10 +117,7 @@
     
     <div id="defaultdiv"></div>
     
-    <div style="text-align:center;">
-              <h1 style="font-weight:100; margin-top:60px; margin-left:600px; background-color:lightgrey; width:310px;">Your Cart is Empty</h1>
-              <button type="button" onclick="window.location.href='./index.html'" style="border:1px solid black; margin-top:15px; " class="btn btn-light"><ion-icon style="position: relative; top:3px; right:2px; "  name="arrow-back-outline"></ion-icon>Continue Shoppping</button>
-    </div>
+   
 
    </div>
 
@@ -138,15 +135,8 @@
 
 
 
-   <script>
-    let product = document.querySelector("#detailsbutton");
-
-
-product.addEventListener("click",(e)=>{
-     localStorage.setItem("productId",e.target.dataset.id)
-})
-   </script>
-   <script src="./cart.html"></script>
+   <script src="./cart.js"> </script>
+   
       
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
