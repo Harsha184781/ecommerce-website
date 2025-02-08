@@ -9,7 +9,7 @@
     filterwom(data);
     filterjel(data);
     filterelec(data);
-    console.log(data);
+    
     
  }
     
@@ -351,10 +351,7 @@ function button(){
 let btns = document.querySelectorAll(".localadd");
 
 
-// for (let i = 0; i < btns.length; i++) {
-//     let btn = btns[i];
-//     btn.addEventListener("click", add);
-// }
+
     
 btns.forEach((ele)=>{
     ele.addEventListener("click",add)
@@ -380,21 +377,25 @@ if (id in cart) {
 }
 
 
-count++;
-sum += price;
+
 
 
 
 localStorage.setItem("cart", JSON.stringify(cart));
-updateCart(count);
+updateCart();
 }
 
 }
 
-function updateCart() {
-    // document.getElementById(".sum").textContent = sum;
-    document.getElementById("count").textContent = count;
-    localStorage.setItem("sum", sum);
-    localStorage.setItem("count", count);
-    
-}
+
+
+function updateCart(){
+    cart = JSON.parse(localStorage.getItem("cart"));
+    cartArr = [];
+    for(let ele in cart){
+      cartArr.push(cart[ele]);
+    }
+    console.log(cartArr);
+   let cartcount = cartArr.filter(ele=>ele.qty!=0).length;
+   document.getElementById("count").textContent = cartcount;
+  }

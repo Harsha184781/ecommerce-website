@@ -21,7 +21,6 @@ if (localStorage.getItem("cart")){
   cart = JSON.parse(localStorage.getItem("cart"));
   }
 
-updateCart();
 
 
 
@@ -46,23 +45,9 @@ data1();
 
 
 
-  // function cartmatter(elementid,quantity,data){
+ 
 
 
-   
-
-  // }
-
-
-
-  function updateCart() {
-    // document.getElementById(".sum").textContent = sum;
-    document.getElementById("count").textContent = count;
-    localStorage.setItem("sum", sum);
-    localStorage.setItem("count", count);
-   
-    
-  }
 
 function increment(cart){
   let increbtns = document.querySelectorAll(".increment")
@@ -79,6 +64,7 @@ function increment(cart){
             
             })
   })
+  
   
 }
 
@@ -100,14 +86,19 @@ function decrement(cart){
             })
   })
  
-  // cart = JSON.parse(localStorage.getItem("cart"));
-  // for(let ele in cart){
-  //   if(cart[ele].qty==0){
 
-  //   }
-
-  // }
   }
+
+
+function cartempty(){
+  display=alert("Cart is Empty");
+      let cartempty=` <div style="text-align:center;">
+                <h1 style="font-weight:100; margin-top:60px; margin-left:600px; background-color:lightgrey; width:310px;">Your Cart is Empty</h1>
+                <button type="button" onclick="window.location.href='./index.html'" style="border:1px solid black; margin-top:15px; " class="btn btn-light"><ion-icon style="position: relative; top:3px; right:2px; "  name="arrow-back-outline"></ion-icon>Continue Shoppping</button>
+      </div>`
+      defaultdiv.innerHTML=cartempty;
+}
+
 
 
 
@@ -118,12 +109,8 @@ function carts(data){
     cart = JSON.parse(localStorage.getItem("cart"));
     
   if(!localStorage.getItem("cart")){
-      display=alert("Cart is Empty");
-      let cartempty=` <div style="text-align:center;">
-                <h1 style="font-weight:100; margin-top:60px; margin-left:600px; background-color:lightgrey; width:310px;">Your Cart is Empty</h1>
-                <button type="button" onclick="window.location.href='./index.html'" style="border:1px solid black; margin-top:15px; " class="btn btn-light"><ion-icon style="position: relative; top:3px; right:2px; "  name="arrow-back-outline"></ion-icon>Continue Shoppping</button>
-      </div>`
-      defaultdiv.innerHTML=cartempty;
+    
+    cartempty();
   }
   else{
 
@@ -162,12 +149,7 @@ function carts(data){
      
    }
 
-  // let totalprice=0
-  //  for(let ele in cart){
-  //   console.log(cart[ele].qty);
-    
-  //     totalprice +=(cart[ele].qty*cart[ele].price);
-  // } 
+  
   let totalprice =  orderSummary(cart);
  
 
@@ -201,7 +183,7 @@ function carts(data){
 </div>`
 increment(cart);
 decrement(cart);
-
+updateCart();
 
   }
 }
@@ -211,13 +193,24 @@ decrement(cart);
 function orderSummary(cart){
  let totalprice = 0;
 for(let ele in cart){
-  console.log(cart[ele].qty);
-  
     totalprice +=(cart[ele].qty*cart[ele].price);
 }
 return totalprice
 }
 
 
+function updateCart(){
+  cart = JSON.parse(localStorage.getItem("cart"));
+  cartArr = [];
+  for(let ele in cart){
+    cartArr.push(cart[ele]);
+  }
+  console.log(cartArr);
+ let cartcount = cartArr.filter(ele=>ele.qty!=0).length;
+ document.getElementById("count").textContent = cartcount;
+ if(cartcount==0){
+  cartempty();
+}
+}
 
 

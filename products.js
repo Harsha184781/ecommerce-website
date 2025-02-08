@@ -419,21 +419,14 @@ function button(){
   
   btns.forEach((ele)=>{
 
-    ele.addEventListener("click",(e)=>{
-      add(e);
-  })
+    ele.addEventListener("click",add)
   
 
   })
   
 } 
 
-function updateCart() {
-  // document.getElementById(".sum").textContent = sum;
-  document.getElementById("count").textContent = count;
-  localStorage.setItem("sum", sum);
-  localStorage.setItem("count", count);
-}
+
 
 function add(e){
   let title = e.target.dataset.title;
@@ -453,10 +446,21 @@ if(id in cart){
   cart[id] = cartItem;
 }
 
-sum+=price;
-count++;
 
 localStorage.setItem("cart", JSON.stringify(cart));
-updateCart(count);
+updateCart();
 
+}
+
+
+
+function updateCart(){
+  cart = JSON.parse(localStorage.getItem("cart"));
+  cartArr = [];
+  for(let ele in cart){
+    cartArr.push(cart[ele]);
+  }
+  console.log(cartArr);
+ let cartcount = cartArr.filter(ele=>ele.qty!=0).length;
+ document.getElementById("count").textContent = cartcount;
 }

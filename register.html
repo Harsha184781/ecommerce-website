@@ -170,13 +170,15 @@ if (localStorage.getItem("cart")){
 
 updateCart();
 
-function updateCart() {
-  // document.getElementById(".sum").textContent = sum;
-  document.getElementById("count").textContent = count;
-  localStorage.setItem("sum", sum);
-  localStorage.setItem("count", count);
- 
-  
+function updateCart(){
+  cart = JSON.parse(localStorage.getItem("cart"));
+  cartArr = [];
+  for(let ele in cart){
+    cartArr.push(cart[ele]);
+  }
+  console.log(cartArr);
+ let cartcount = cartArr.filter(ele=>ele.qty!=0).length;
+ document.getElementById("count").textContent = cartcount;
 }
 
    </script>
