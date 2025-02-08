@@ -49,7 +49,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class = "details">
                 Details
             </button>
-            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class = "add localadd">
+            <button   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class = "add localadd">
                 Add to Cart
             </button>
     </div>
@@ -94,7 +94,7 @@
             <button  onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
+            <button   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -142,7 +142,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-image=${ele.image} data-title=${ele.title}  data-price =${ele.price}  class="add localadd">
+            <button   data-id=${ele.id} data-image=${ele.image} data-title=${ele.title}  data-price =${ele.price}  class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -192,7 +192,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
+            <button   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -242,7 +242,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
+            <button   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price} class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -294,7 +294,7 @@
             <button onclick="window.location.href='./details.html'" data-id=${ele.id} class="details">
                    Details
             </button>
-            <button  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price} class="add localadd">
+            <button   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price} class="add localadd">
                 Add to Cart
             </button>
     </div>
@@ -339,9 +339,10 @@
     
     if (localStorage.getItem("cart")) {
         cart = JSON.parse(localStorage.getItem("cart"));
+        updateCart();
     } 
     
-    updateCart();
+    
     
 
 function button(){
@@ -362,6 +363,7 @@ function add(event) {
     let title = event.target.dataset.title;
     let id = event.target.dataset.id;
     let image = event.target.dataset.image;
+ 
 
 if (id in cart) {
     cart[id].qty++;   

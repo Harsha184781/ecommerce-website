@@ -42,9 +42,10 @@ if (localStorage.getItem("sum")){
 }
 if (localStorage.getItem("cart")){
   cart = JSON.parse(localStorage.getItem("cart"));
+  updateCart()
 }
 
-updateCart();
+
 
 
  function filterproduct(source){
@@ -65,8 +66,9 @@ updateCart();
     <h1 style="font-weight:100;">$${product.price}</h1>
     <p style="font-size:18px; margin-right:200px;">${product.description}</p>
     <div style="display:flex;">
-     <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  onclick="window.location.href='./cart.html'" data-id=${product.id} data-image=${product.image} data-title=${product.title}  data-price =${product.price} >Add to Cart</button>
-     <button type="button" class="btn btn-dark" >Go to Cart</button>
+     <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"   data-id=${product.id} data-image=${product.image} data-title=${product.title}  data-price =${product.price} >Add to Cart</button>
+        <button onclick="window.location.href='./cart.html'" type="button" class="btn btn-dark" >Go to Cart</button>
+      
     </div>
    </div>
  </div>`
@@ -81,7 +83,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd" onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -101,8 +103,8 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
-    <button type="button" class="btn btn-dark">Go to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"   data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
+    <button onclick="window.location.href='./cart.html'" type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
   </div>
@@ -118,7 +120,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -138,8 +140,8 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
-    <button type="button" class="btn btn-dark">Go to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"   data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
+    <button onclick="window.location.href='./cart.html'" type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
   </div>
@@ -155,7 +157,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-image=${ele.image} data-title=${ele.title}  data-price =${ele.price}>Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"   data-id=${ele.id} data-image=${ele.image} data-title=${ele.title}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -174,8 +176,8 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd" onclick="window.location.href='./cart.html'" data-id=${product.id} data-image=${product.image} data-title=${product.title}  data-price =${product.price}>Add to Cart</button>
-    <button type="button" class="btn btn-dark">Go to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  data-id=${product.id} data-image=${product.image} data-title=${product.title}  data-price =${product.price}>Add to Cart</button>
+    <button  onclick="window.location.href='./cart.html'" type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
   </div>
@@ -191,7 +193,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price}>Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -211,8 +213,8 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd" onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
-    <button type="button" class="btn btn-dark">Go to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
+    <button onclick="window.location.href='./cart.html'" type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
   </div>
@@ -228,7 +230,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -248,8 +250,8 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
    <h1 style="font-weight:100;">$${product.price}</h1>
    <p style="font-size:18px; margin-right:200px;">${product.description}</p>
    <div style="display:flex;">
-    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd" onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
-    <button type="button" class="btn btn-dark">Go to Cart</button>
+    <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
+    <button onclick="window.location.href='./cart.html'" type="button" class="btn btn-dark">Go to Cart</button>
    </div>
 
   </div>
@@ -266,7 +268,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -285,8 +287,8 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     <h1 style="font-weight:100;">$${product.price}</h1>
     <p style="font-size:18px; margin-right:200px;">${product.description}</p>
     <div style="display:flex;">
-     <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd" onclick="window.location.href='./cart.html'" data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
-     <button type="button" class="btn btn-dark" onclick="window.location.href='./cart.html'">Go to Cart</button>
+     <button type="button" style="margin-right:12px;" class="btn btn-outline-dark localadd"  data-id=${product.id} data-title=${product.title} data-image=${product.image}  data-price =${product.price}>Add to Cart</button>
+     <button onclick="window.location.href='./cart.html'" type="button" class="btn btn-dark" >Go to Cart</button>
     </div>
 
    </div>
@@ -302,7 +304,7 @@ mayliked +=` <div style="border:2px solid lightgrey; border-radius:5px; width:22
     </div>
       <div style="display:flex; justify-content:center; margin-bottom:15px;">
         <button  onclick="window.location.href='./details.html'"  data-id=${ele.id} type="button" class="btn btn-dark details">Details</button>
-        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"  onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
+        <button style="margin-left:10px;" type="button" class="btn btn-dark add localadd"   data-id=${ele.id} data-title=${ele.title} data-image=${ele.image}  data-price =${ele.price}>Add to Cart</button>
       </div>
     </div>`
 })
@@ -358,7 +360,7 @@ button();
              <button onclick="window.location.href='./details.html'" data-id=${ele.id} class = "details">
                  Details
              </button>
-             <button   onclick="window.location.href='./cart.html'" data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price} class = "add localadd">
+             <button    data-id=${ele.id} data-title=${ele.title} data-image=${ele.image} data-price =${ele.price} class = "add localadd">
                  Add to Cart
              </button>
      </div>
