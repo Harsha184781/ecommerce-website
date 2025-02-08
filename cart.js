@@ -167,7 +167,7 @@ function carts(data){
       <div style="padding:20px; border:1px solid lightgrey;">
         <div style="display:flex; justify-content: space-between;" >
         <p>Products()</p>
-        <p>$${totalprice}</p>
+        <p>$${Math.floor(totalprice)}</p>
       </div>
       <div style="display:flex; justify-content: space-between;">
         <p>Shipping</p>
@@ -175,7 +175,7 @@ function carts(data){
       </div>
       <div style="display:flex; justify-content: space-between;">
         <p style="font-weight:bold;">Total amount</p>
-        <p style= "font-weight:bold;">$${totalprice+30}</p>
+        <p style= "font-weight:bold;">$${Math.floor(totalprice+30)}</p>
       </div>
         <button  style="width:270px; padding:8px;" type="button" class="btn btn-dark">Go to checkout</button>
       </div>
